@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+const API_URL = "https://localhost:5001/api/activities";
 function App() {
   const [activities, setActivities] = useState<Activity[]>([]);
   useEffect(() => {
     axios
-      .get<Activity[]>("https://localhost:5001/api/activities")
+      .get<Activity[]>(API_URL)
       .then((response) => setActivities(response.data));
   }, []);
 
